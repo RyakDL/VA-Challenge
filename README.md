@@ -25,5 +25,5 @@ Sources:
 
 Overall Comment on VBA Module and Homework:
 
-I considerr myself an advanced Excel poweruser and found the VBA very challenging to learn and execute. I can see the clear benifits of using macros to perform analysis on datasets in conjuction with using pivottables and statistical data modeling in Excel. I do not have a background in coding so my hope is that with practice, using VBA will become easier and I can utilize it in my current job as a risk manager. 
+I consider myself an advanced Excel poweruser and found the VBA very challenging to learn and execute. I can see the clear benifits of using macros to perform analysis on datasets in conjuction with using pivottables and statistical data modeling in Excel. I do not have a background in coding so my hope is that with practice, using VBA will become easier and I can utilize it in my current job as a risk manager. 
     
