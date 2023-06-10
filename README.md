@@ -1,8 +1,9 @@
 # VBA-Challenge
 
 Module 2 Homework Instructions:
-Macro-enabled Excel Workbook is the homework. To access the VBA code, open the Excel workbook "Multiple-year_stock_data v_RLund_FINAL" and select the Developer tab. On the Developer Tab, select VBA Script to view the Macro.
-Run the Marcro by selecting the Macro button on the Developer Tab and running the macro "Stock_Loop" attached to this workbook. 
+1) Macro-enabled Excel Workbook is the homework. To access the VBA code, open the Excel workbook "Multiple-year_stock_data v_RLund_FINAL" and select the Developer tab. On the Developer Tab, select VBA Script to view the Macro.
+2) Run the Marcro by selecting the Macro button on the Developer Tab and running the macro "Stock_Loop" attached to this workbook.
+3) There is also a VBA Stock Analysis Script file and 3 PDF files that contain screenshots. 
 
 Sources:
 1) The VBA of Wall Street by Miles Lucey. https://github.com/mileslucey/vba_of_wall_street Accessed 6.09.2023
