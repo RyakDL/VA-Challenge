@@ -1,9 +1,9 @@
 # VBA-Challenge
 
 Module 2 Homework Instructions:
-1) Macro-enabled Excel Workbook is the homework. To access the VBA code, open the Excel workbook "Multiple-year_stock_data v_RLund_FINAL" and select the Developer tab. On the Developer Tab, select VBA Script to view the Macro.
-2) Run the Marcro by selecting the Macro button on the Developer Tab and running the macro "Stock_Loop" attached to this workbook.
-3) There is also a VBA Stock Analysis Script file and 3 PDF files that contain screenshots. 
+1) The Multiple_year_stock_data.xlxs exceeds 25 MB and can't be uploaded. Therefore, to access the VBA code, open the 'vba stock analysis script_RLund_Final' file for the code. Once opened, the code can be pasted into a macro-enabled Multiple_year_stock-data workbook and executed. 
+3) Run the Marcro by selecting the Macro button on the Developer Tab and running the macro "Stock_Loop".
+4) There is also 3 PDF files that contain screenshots of the worksheet results after the macro was executed.  
 
 Sources:
 1) The VBA of Wall Street by Miles Lucey. https://github.com/mileslucey/vba_of_wall_street Accessed 6.09.2023
@@ -26,5 +26,5 @@ Sources:
 
 Overall Comment on VBA Module and Homework:
 
-I consider myself an advanced Excel poweruser and found the VBA very challenging to learn and execute. I can see the clear benifits of using macros to perform analysis on datasets in conjuction with using pivottables and statistical data modeling in Excel. I do not have a background in coding so my hope is that with practice, using VBA will become easier and I can utilize it in my current job as a risk manager. 
+I consider myself an Excel poweruser and found the VBA module very challenging to learn and execute. I can see the clear benifits of using macros to perform analysis on datasets in conjuction with using pivottables and statistical data modeling in Excel. I do not have a background in coding so my hope is that with practice, using VBA will become easier and I can utilize it in my current job as a credit risk manager. 
     
