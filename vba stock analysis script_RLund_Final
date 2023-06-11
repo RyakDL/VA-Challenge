@@ -1,0 +1,77 @@
+Sub Stock_Loop()
+   
+'Define Variables for Workbook
+    Dim ws_count As Integer
+    Dim i As Integer
+    Dim j As Long
+    Dim k As Integer
+    Dim l As Integer
+    Dim m As Integer
+    Dim total_vol As Double
+    Dim stock_open_price As Double
+    Dim stock_close_price As Double
+'Loop through all worksheets
+    k = 2
+    ws_count = ActiveWorkbook.Worksheets.Count
+    For i = 1 To ws_count
+'Labels for columns with new data in all worksheets
+        ActiveWorkbook.Worksheets(i).Cells(1, 9).Value = "Ticker"
+        ActiveWorkbook.Worksheets(i).Cells(1, 10).Value = "Yearly Change"
+        ActiveWorkbook.Worksheets(i).Cells(1, 11).Value = "Percent Change"
+        ActiveWorkbook.Worksheets(i).Cells(1, 12).Value = "Total Stock Volume"
+        ActiveWorkbook.Worksheets(i).Cells(2, 15).Value = "Greatest % Increase"
+        ActiveWorkbook.Worksheets(i).Cells(3, 15).Value = "Greatest % Decrease"
+        ActiveWorkbook.Worksheets(i).Cells(4, 15).Value = "Greatest Total Volume"
+        ActiveWorkbook.Worksheets(i).Cells(1, 16).Value = "Ticker"
+        ActiveWorkbook.Worksheets(i).Cells(1, 17).Value = "Value"
+'Set total stock volume counter to zero
+        total_vol = 0
+'Use For next loop on the entire sheet, use 'xlcelltypecell' 
+        For j = 2 To ActiveWorkbook.Worksheets(i).Cells.SpecialCells(xlCellTypeLastCell).Row
+'Conditional to calculate percentage of stock opening price and closing price 
+            If ActiveWorkbook.Worksheets(i).Cells(j, 1).Value <> ActiveWorkbook.Worksheets(i).Cells(j + 1, 1).Value Then
+                stock_close_price = ActiveWorkbook.Worksheets(i).Cells(j, 6).Value
+                ActiveWorkbook.Worksheets(i).Cells(k, 10).Value = stock_close_price - stock_open_price
+                ActiveWorkbook.Worksheets(i).Cells(k, 11).Value = (stock_close_price - stock_open_price) / stock_open_price
+                stock_open_price = 0
+                stock_close_price = 0
+'Loop through each sheet to sum the total volume
+                ActiveWorkbook.Worksheets(i).Cells(k, 9).Value = ActiveWorkbook.Worksheets(i).Cells(j, 1).Value
+                total_vol = total_vol + ActiveWorkbook.Worksheets(i).Cells(j, 7).Value
+                ActiveWorkbook.Worksheets(i).Cells(k, 12).Value = total_vol
+                k = k + 1
+                total_vol = 0
+'Conditional for opening price
+            ElseIf ActiveWorkbook.Worksheets(i).Cells(j - 1, 1).Value <> ActiveWorkbook.Worksheets(i).Cells(j, 1).Value Then
+                stock_open_price = ActiveWorkbook.Worksheets(i).Cells(j, 3).Value
+                total_vol = total_vol + ActiveWorkbook.Worksheets(i).Cells(j, 7).Value
+'Loop through total volume
+            Else
+                total_vol = total_vol + ActiveWorkbook.Worksheets(i).Cells(j, 7).Value
+            End If
+        Next j
+'Formatting for stock percent change and autofit columns
+        For l = 2 To ActiveWorkbook.Worksheets(i).Range("K1").CurrentRegion.Rows.Count
+        ActiveWorkbook.Worksheets(i).Cells(l, 11).NumberFormat = "0.00%"
+                If ActiveWorkbook.Worksheets(i).Cells(l, 11).Value > 0 Then
+                With ActiveWorkbook.Worksheets(i).Cells(l, 11).Interior
+                    .ColorIndex = 4
+                End With
+            Else
+                With ActiveWorkbook.Worksheets(i).Cells(l, 11).Interior
+                    .ColorIndex = 3
+                End With
+            End If
+        Next l
+        ActiveWorkbook.Worksheets(i).Columns("J:L").Autofit
+
+'Calculate maximum increase, maximum decrease and greatest total volume and format data in percentages, use 'currentregions for rows
+        ActiveWorkbook.Worksheets(i).Cells(2, 17).Value = WorksheetFunction.Max(Worksheets(i).Range("K2:K" & ActiveWorkbook.Worksheets(i).Range("K1").CurrentRegion.Rows.Count))
+        ActiveWorkbook.Worksheets(i).Cells(3, 17).Value = WorksheetFunction.Min(Worksheets(i).Range("K2:K" & ActiveWorkbook.Worksheets(i).Range("K1").CurrentRegion.Rows.Count))
+        ActiveWorkbook.Worksheets(i).Cells(4, 17).Value = WorksheetFunction.Max(Worksheets(i).Range("L2:L" & ActiveWorkbook.Worksheets(i).Range("K1").CurrentRegion.Rows.Count))
+        ActiveWorkbook.Worksheets(i).Cells(2, 17).NumberFormat = "0.00%"
+        ActiveWorkbook.Worksheets(i).Cells(3, 17).NumberFormat = "0.00%"
+'Close the loop for all worksheets
+        k = 2
+    Next i
+End Sub
